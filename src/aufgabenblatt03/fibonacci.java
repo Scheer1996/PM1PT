@@ -15,7 +15,7 @@ public class fibonacci {
 			System.out.println("Die wievielte Fibonacci Zahl wollen Sie haben ?");
 			count = scanner.nextInt();
 			
-			while()
+			//while()
 			
 		} catch (InputMismatchException e) {
 			System.err.println("Fehlerhafte Eingabe!");
