@@ -9,23 +9,26 @@ public class SatelliteTime {
 	{
 		//vars
 		int tage, stunden, minuten, sekunden;
-		int eingabeZeit;
+		int satelliteTime;
 		
 		Scanner scanner = new Scanner(System.in);
 		
 		try {
 			System.out.print("Bitte Satellitenzeit eingeben: ");
-			eingabeZeit = scanner.nextInt();
+			satelliteTime = scanner.nextInt();
 			
-			tage = eingabeZeit / (86400);
-			eingabeZeit %= (86400);
+			// Berechnung
+			tage = satelliteTime / (86400);
+			satelliteTime %= (86400);
 			
-			stunden = eingabeZeit / (3600);
-			eingabeZeit %= (3600);
+			stunden = satelliteTime / (3600);
+			satelliteTime %= (3600);
 			
-			minuten = eingabeZeit / (60);
-			sekunden = eingabeZeit % (60);
+			minuten = satelliteTime / (60);
+			sekunden = satelliteTime % (60);
 			
+			
+			// Ausgabe
 			System.out.format("%d Tage %d:%d:%d", tage, stunden, minuten, sekunden);
 			
 			
