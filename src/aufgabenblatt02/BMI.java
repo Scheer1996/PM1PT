@@ -14,15 +14,13 @@ public class BMI {
 		
 		System.out.print("Geben Sie ihre Größe in m ein: ");
 		size = scanner.nextDouble();
-
 		System.out.print("Geben Sie ihr Gewicht in kg ein: ");
 		weight = scanner.nextDouble();
+		scanner.close();
 		
 		//bmi berechnen
 		bmi = (int) (weight / (size * size));
 		
 		System.out.format("Ihr BMI beträgt: %d", bmi);
-		
-		scanner.close();
 	}
 }
