@@ -12,8 +12,9 @@ public class SatelliteTime {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("Bitte Satellitenzeit eingeben: ");
+		System.out.print("Bitte Satellitenzeit eingeben in Sekunden eingeben: ");
 		satelliteTime = scanner.nextInt();
+		scanner.close();
 		
 		// Berechnung
 		tage = satelliteTime / (86400);
@@ -22,14 +23,12 @@ public class SatelliteTime {
 		stunden = satelliteTime / (3600);
 		satelliteTime %= (3600);
 		
-		minuten = satelliteTime / (60);
-		sekunden = satelliteTime % (60);
+		minuten = satelliteTime / 60;
+		sekunden = satelliteTime % 60;
 		
 		
 		// Ausgabe
 		System.out.format("%d Tage %d:%d:%d", tage, stunden, minuten, sekunden);
-		
-		scanner.close();
 		
 	}
 

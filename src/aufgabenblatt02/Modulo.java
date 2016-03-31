@@ -14,11 +14,11 @@ public class Modulo {
 
 		System.out.print("Bitte b eingeben: ");
 		b = scanner.nextInt();
-
+		scanner.close();
+		
 		System.out.println("Modulo operator: " + (a % b)); //Module mit Modulo Operator
 		System.out.println("Modulo Formel (a- (a / b) * b): " + (a - (a / b) * b)); //Modulo manuell
 
-		scanner.close();
 	}
 
 }

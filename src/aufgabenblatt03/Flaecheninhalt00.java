@@ -13,7 +13,7 @@ public class Flaecheninhalt00 {
 		System.out.println("Menü: \n Flächeninhalt für \n [1] einen Kreis \n [2] ein Quadrats\n [3] eines Sechsecks \n Bitte wählen: ");
 		index = scanner.nextInt();
 		
-		System.out.println("Bitte geben Sie die Seitelänge ein:");
+		System.out.println("Bitte geben Sie die Seitelänge/Radius ein:");
 		x = scanner.nextDouble();
 		scanner.close();
 		

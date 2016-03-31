@@ -49,7 +49,7 @@ public class Array {
 		// Aufgaben b) bis d)
 		System.out.format("Die Temperatur beträgt im durchschnitt %.2f°.\n", durchschnitt);
 		System.out.format("Die Höchsttemperatur war %d° und die Niedrigste %d°.\n", maxTemp, minTemp);
-		System.out.format("Den höchsten Temperaturumschwung gab es %s. Dieser Betrug %d°\n", differenzTageString, tempDifferenzMax);
+		System.out.format("Den höchsten Temperaturumschwung von %d° gab es %s.\n", tempDifferenzMax, differenzTageString);
 		
 		// Ausgabe für e)
 		System.out.println("  Tag  | Temperatur");
