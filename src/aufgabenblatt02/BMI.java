@@ -1,7 +1,19 @@
+/**
+ * Praktikum PM1 / PT - SS 2016
+ * Gruppe:  Philip Scheer (Philip.Scheer@haw-hamburg.de),
+ * 			Moritz Höwer (Moritz.Hoewer@haw-hamburg.de)
+ * 
+ * Aufgabe: Aufgabenblatt 2 - Aufgabe 2
+ */
+
 package aufgabenblatt02;
 
 import java.util.Scanner;
 
+/**
+ * calculates BMI from size and weight
+ *
+ */
 public class BMI {
 
 	public static void main(String[] args)
@@ -17,10 +29,10 @@ public class BMI {
 		System.out.print("Geben Sie ihr Gewicht in kg ein: ");
 		weight = scanner.nextDouble();
 		
-		//Aufräumen
+		//clean up
 		scanner.close();
 		
-		//bmi berechnen
+		//calculate bmi
 		bmi = (int) (weight / (size * size));
 		
 		System.out.format("Ihr BMI beträgt: %d", bmi);

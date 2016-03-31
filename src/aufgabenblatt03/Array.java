@@ -1,12 +1,23 @@
+/**
+ * Praktikum PM1 / PT - SS 2016
+ * Gruppe:  Philip Scheer (Philip.Scheer@haw-hamburg.de),
+ * 			Moritz Höwer (Moritz.Hoewer@haw-hamburg.de)
+ * 
+ * Aufgabe: Aufgabenblatt 3 - Aufgabe 3
+ */
+
 package aufgabenblatt03;
 
+/**
+ * Calculations with a temperature-array
+ */
 public class Array {
 
 	public static void main(String[] args) {
-		final int[][] temperaturDaten = {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14},
-				{12, 14, 9, 12, 15, 16, 15, 15, 11, 8, 13, 13, 15, 12}};
+		final int[][] TEMPERATURE_DATA = { { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 },
+				{ 12, 14, 9, 12, 15, 16, 15, 15, 11, 8, 13, 13, 15, 12 } };
 
-		// durchschnittstemperatur
+		// mean temperature
 		int totalTemp = 0;
 		int i;
 
@@ -14,75 +25,70 @@ public class Array {
 		int minTemp = Integer.MAX_VALUE;
 		int maxTemp = Integer.MIN_VALUE;
 
-		// schwankung
-		int tempDifferenzMax = 0;
-		String differenzTageString = "";
+		// temperature difference
+		int tempDiffMax = 0;
+		String differenceDaysString = "";
 
-		for(i = 0; i < temperaturDaten[1].length; i++) {
-			int temp = temperaturDaten[1][i];
+		for (i = 0; i < TEMPERATURE_DATA[1].length; i++) {
+			int temp = TEMPERATURE_DATA[1][i];
 
-			//temps aufaddieren
+			// add up temps
 			totalTemp += temp;
 
-			//max/min temp rausfinden/durchrreichen
+			// update max/min temp
 			minTemp = Math.min(minTemp, temp);
 			maxTemp = Math.max(maxTemp, temp);
 
-			//differenzen zwischen den Tagen
-			if(i >= 1) { //fange erst bei tag 2 an
+			// difference between days
+			if (i >= 1) { // start at day 2
 
-				//differenz
-				int tempDifferenz = Math.abs(temp - temperaturDaten[1][i-1]);
+				// difference
+				int tempDifferenz = Math.abs(temp - TEMPERATURE_DATA[1][i - 1]);
 
-				if(tempDifferenz > tempDifferenzMax) { // war die Änderung größer -> neuer String
-					tempDifferenzMax = tempDifferenz;
-					differenzTageString = "vom "+temperaturDaten[0][i-1]+". zum "+temperaturDaten[0][i]+". Tag";
+				// Bigger Change? -> generate new String
+				if (tempDifferenz > tempDiffMax) {
+					tempDiffMax = tempDifferenz;
+					differenceDaysString = "vom " + TEMPERATURE_DATA[0][i - 1] + ". zum " + TEMPERATURE_DATA[0][i]
+							+ ". Tag";
 
-				} else if(tempDifferenz == tempDifferenzMax) { // war die Änderung gleich -> String erweitern
-					differenzTageString += " und vom "+temperaturDaten[0][i-1]+". zum "+temperaturDaten[0][i]+". Tag";
+				}
+				// Change was equal -> append to String
+				else if (tempDifferenz == tempDiffMax) {
+					differenceDaysString += " und vom " + TEMPERATURE_DATA[0][i - 1] + ". zum " + TEMPERATURE_DATA[0][i]
+							+ ". Tag";
 				}
 			}
 		}
 
-		double durchschnitt = (double)totalTemp / i;
+		//calculate mean value form sum and count (loop counter is used for count)
+		double durchschnitt = (double) totalTemp / i;
 
-		// Aufgaben b) bis d)
 		System.out.format("Die Temperatur beträgt im durchschnitt %.2f°.\n", durchschnitt);
 		System.out.format("Die Höchsttemperatur war %d° und die Niedrigste %d°.\n", maxTemp, minTemp);
-		System.out.format("Den höchsten Temperaturumschwung von %d° gab es %s.\n", tempDifferenzMax, differenzTageString);
+		System.out.format("Den höchsten Temperaturumschwung von %d° gab es %s.\n", tempDiffMax,
+				differenceDaysString);
 
-		// Ausgabe für e)
-
-		//Tabelle
-		//Tage
+		// Table
+		// Days
 		System.out.println();
 		System.out.print("Tag:        |");
-		for(i = 0; i < temperaturDaten[0].length; i++){
-			System.out.format(" %3d  |", temperaturDaten[0][i]);
+		for (i = 0; i < TEMPERATURE_DATA[0].length; i++) {
+			System.out.format(" %3d  |", TEMPERATURE_DATA[0][i]);
 		}
 
-		//Trennstrich
+		// Separator
 		System.out.println();
 		System.out.print("------------|");
-		for(i = 0; i < temperaturDaten[0].length; i++){
+		for (i = 0; i < TEMPERATURE_DATA[0].length; i++) {
 			System.out.print("------|");
 		}
 
-		//Temperaturen
+		// Temperature
 		System.out.println();
 		System.out.print("Temperatur: |");
-		for(i = 0; i < temperaturDaten[1].length; i++){
-			System.out.format(" %3d° |", temperaturDaten[1][i]);
+		for (i = 0; i < TEMPERATURE_DATA[1].length; i++) {
+			System.out.format(" %3d° |", TEMPERATURE_DATA[1][i]);
 		}
-
-		
-		/*
-		System.out.println("  Tag  | Temperatur");
-		System.out.println("-------------------");
-		for(i = 0; i < temperaturDaten[0].length; i++) {
-			System.out.format(" %3d   |  %3d° \n", temperaturDaten[0][i], temperaturDaten[1][i]);
-			System.out.println("-------------------");
-		}*/
 
 	}
 

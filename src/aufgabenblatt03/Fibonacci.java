@@ -1,39 +1,45 @@
+/**
+ * Praktikum PM1 / PT - SS 2016
+ * Gruppe:  Philip Scheer (Philip.Scheer@haw-hamburg.de),
+ * 			Moritz Höwer (Moritz.Hoewer@haw-hamburg.de)
+ * 
+ * Aufgabe: Aufgabenblatt 3 - Aufgabe 2
+ */
+
 package aufgabenblatt03;
 
 import java.util.Scanner;
 
+/**
+ * Calculates the n-th Number in the Fibonacci sequence.
+ */
 public class Fibonacci {
 
-	/*
-	 * Berechnen der Fibonacci Zahl bis einer größe von 2^64
-	 */
 	public static void main(String[] args) {
-		//vars
-		int startCount, count,
-			vorletzterWert = 1, 
-			letzterWert = 1,
-			aktuellerWert = 1;
-		
+		// vars
+		int startCount, count, previousToLastValue = 1, lastValue = 1, currentValue = 1;
+
 		Scanner scanner = new Scanner(System.in);
-		
+
 		System.out.println("Die wievielte Fibonacci Zahl wollen Sie haben ?");
 		startCount = scanner.nextInt();
-		
-		//Aufräumen
+
+		// clean up
 		scanner.close();
-		
+
 		count = startCount;
-		
-		while(count > 2) { //wenn count größer als 2 sonst bleibt aktuellerWert = 1
-			aktuellerWert = vorletzterWert + letzterWert;
-	        vorletzterWert = letzterWert;
-	        letzterWert = aktuellerWert;    
+
+		// if count is less than 2, the predefined value of 1 is kept
+		while (count > 2) {
+			currentValue = previousToLastValue + lastValue;
+			previousToLastValue = lastValue;
+			lastValue = currentValue;
 			count--;
 		}
-		
-		System.out.format("Die %d. Fibonacci Zahl ist: %d", startCount, aktuellerWert);
-			
-		
+
+		// output
+		System.out.format("Die %d. Fibonacci Zahl ist: %d", startCount, currentValue);
+
 	}
 
 }
