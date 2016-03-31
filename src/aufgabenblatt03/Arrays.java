@@ -23,20 +23,20 @@ public class Arrays {
 		for(i = 0; i < daten[1].length; i++){
 			int datum = daten[1][i];
 			
-			//Für Durchschnitt
+			//FÃ¼r Durchschnitt
 			summe += datum;
 			
-			//Für min / max
+			//FÃ¼r min / max
 			min = Math.min(min, datum);
 			max = Math.max(max, datum);
 			
-			//höchste Schwankung
-			if(i >= 1){ //Mn braucht mindestens 2 Werte
+			//hÃ¶chste Schwankung
+			if(i >= 1){ //Man braucht mindestens 2 Werte
 				
-				//Änderung berechnen
+				//Ã„nderung berechnen
 				int dt = Math.abs(datum - daten[1][i-1]);
 				
-				//War die Änderung größer als zuvor?
+				//War die Ã„nderung grÃ¶ÃŸer als zuvor?
 				if(dt > dtMax){
 					dtMax = dt;
 					indexD1 = i-1;
@@ -48,9 +48,9 @@ public class Arrays {
 		double durchschnitt = (double)summe / i;
 		
 		//Ausgabe
-		System.out.format("Die Durchschnitstemperatur beträgt ca. %.2f°.\n", durchschnitt);
-		System.out.format("Die höchste Temperatur war %d°, die Niedrigste %d°.\n", max, min);
-		System.out.format("Den höchsten Temperaturumschwung von %d° gab es vom %d. zum %d. Tag.\n", dtMax, daten[0][indexD1], daten[0][indexD2]);
+		System.out.format("Die Durchschnitstemperatur betrÃ¤gt ca. %.2Â°.\n", durchschnitt);
+		System.out.format("Die hÃ¶chste Temperatur war %dÂ°, die Niedrigste %dÂ°.\n", max, min);
+		System.out.format("Den hÃ¶chsten Temperaturumschwung von %dÂ° gab es vom %d. zum %d. Tag.\n", dtMax, daten[0][indexD1], daten[0][indexD2]);
 		
 		//Tabelle
 		//Tage
@@ -71,7 +71,7 @@ public class Arrays {
 		System.out.println();
 		System.out.print("Temperatur: |");
 		for(i = 0; i < daten[1].length; i++){
-			System.out.format(" %3d° |", daten[1][i]);
+			System.out.format(" %3dÂ° |", daten[1][i]);
 		}
 		
 	}

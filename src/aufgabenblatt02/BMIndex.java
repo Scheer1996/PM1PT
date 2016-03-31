@@ -12,7 +12,7 @@ public class BMIndex {
 		Scanner scanner = new Scanner(System.in);
 		
 		//Eingabe holen
-		System.out.print("Geben Sie Ihre Größe in m ein: ");
+		System.out.print("Geben Sie Ihre GrÃ¶ÃŸe in m ein: ");
 		koerpergroesse = scanner.nextDouble();
 
 		System.out.print("Geben Sie ihr Gewicht ein: ");
@@ -22,9 +22,9 @@ public class BMIndex {
 		bmi = (int)( gewicht / (koerpergroesse * koerpergroesse) );
 
 		//Ausgeben
-		System.out.println("Ihr BMI beträgt etwa " + bmi);
+		System.out.println("Ihr BMI betrÃ¤gt etwa " + bmi);
 		
-		//Aufräumen
+		//Aufrï¿½umen
 		scanner.close();
 	}
 

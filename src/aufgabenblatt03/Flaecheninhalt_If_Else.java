@@ -8,15 +8,15 @@ public class Flaecheninhalt_If_Else {
 		Scanner scanner = new Scanner(System.in);
 
 		//Eingaben holen
-		System.out.println("Was mˆchten Sie berechnen?");
-		System.out.println("[1] f¸r Kreis");
-		System.out.println("[2] f¸r Quadrat");
-		System.out.println("[3] f¸r Sechseck");
+		System.out.println("Was m√§chten Sie berechnen?");
+		System.out.println("[1] f√ºr Kreis");
+		System.out.println("[2] f√ºr Quadrat");
+		System.out.println("[3] f√ºr Sechseck");
 		System.out.print("Bitte geben Sie Ihre Wahl ein: ");
 
 		int index = scanner.nextInt();
 		
-		//Formel gem‰ﬂ dem Index ausw‰hlen
+		//Formel gem√§√§ dem Index ausw√§hlen
 		double x, flaeche;
 		
 		if(index == 1) { //Kreis
@@ -27,33 +27,33 @@ public class Flaecheninhalt_If_Else {
 			flaeche = Math.PI * x * x;
 			
 			//Ausgabe
-			System.out.format("Die Fl‰che betr‰gt etwa %.2f\n", flaeche);
+			System.out.format("Die Fl√§che betr√§gt etwa %.2f\n", flaeche);
 			
 		} else if(index == 2) { //Quadrat
-			System.out.print("Bitte geben Sie die Seitenl‰nge an: ");
+			System.out.print("Bitte geben Sie die Seitenl√§nge an: ");
 			x = scanner.nextDouble();
 			
 			//Berechnen:
 			flaeche = x * x;
 			
 			//Ausgabe
-			System.out.format("Die Fl‰che betr‰gt etwa %.2f\n", flaeche);	
+			System.out.format("Die Fl√§che betr√§gt etwa %.2f\n", flaeche);	
 			
 		} else if(index == 3) { //Sechseck
-			System.out.print("Bitte geben Sie die Kantenl‰nge an: ");
+			System.out.print("Bitte geben Sie die Kantenl√§nge an: ");
 			x = scanner.nextDouble();
 			
 			//Berechnen:
 			flaeche = x * x * 3 / 2 * Math.sqrt(3);
 			
 			//Ausgabe
-			System.out.format("Die Fl‰che betr‰gt etwa %.2f\n", flaeche);	
+			System.out.format("Die Fl√§che betr√§gt etwa %.2f\n", flaeche);	
 			
 		} else { //Fehler
 			System.out.print("Ihre Eingabe konnte nicht erkannt werden...");
 		}
 		
-		//Aufr‰umen
+		//Aufr√§umen
 		scanner.close();
 
 	}

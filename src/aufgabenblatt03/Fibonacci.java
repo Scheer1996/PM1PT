@@ -13,10 +13,10 @@ public class Fibonacci {
 		Scanner scanner = new Scanner(System.in);
 		
 		//Eingabe holen
-		System.out.print("Bitte geben Sie ein, welche Stelle der Fibonacci-Reihe (>2) sie erhalten mˆchten: ");
+		System.out.print("Bitte geben Sie ein, welche Stelle der Fibonacci-Reihe (>2) sie erhalten m√∂chten: ");
 		int eingabe = scanner.nextInt();
 		
-		//Aufr‰umen
+		//Aufr√§umen
 		scanner.close();
 		
 		//Berechnen
@@ -29,7 +29,7 @@ public class Fibonacci {
 			f0 = f1;			
 			f1 = fn;
 			
-			//Schleifenz‰hler erhˆhen
+			//Schleifenz√§hler erh√§hen
 			i++;
 		}
 		
