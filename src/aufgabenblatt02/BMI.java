@@ -16,6 +16,8 @@ public class BMI {
 		size = scanner.nextDouble();
 		System.out.print("Geben Sie ihr Gewicht in kg ein: ");
 		weight = scanner.nextDouble();
+		
+		//Aufräumen
 		scanner.close();
 		
 		//bmi berechnen

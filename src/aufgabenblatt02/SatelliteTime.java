@@ -17,18 +17,19 @@ public class SatelliteTime {
 		scanner.close();
 		
 		// Berechnung
-		tage = satelliteTime / (86400);
-		satelliteTime %= (86400);
+		tage = satelliteTime / (24 * 60 * 60);
+		satelliteTime %= (24 * 60 * 60);
 		
-		stunden = satelliteTime / (3600);
-		satelliteTime %= (3600);
+		stunden = satelliteTime / (60 * 60);
+		satelliteTime %= (60 * 60);
 		
 		minuten = satelliteTime / 60;
 		sekunden = satelliteTime % 60;
 		
 		
 		// Ausgabe
-		System.out.format("%d Tage %d:%d:%d", tage, stunden, minuten, sekunden);
+		String tageString = (tage == 1) ? "Tag" : "Tage";
+		System.out.format("%d %s %02d:%02d:%02d", tage, tageString, stunden, minuten, sekunden);
 		
 	}
 
