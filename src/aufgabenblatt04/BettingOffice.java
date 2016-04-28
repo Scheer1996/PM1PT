@@ -1,4 +1,4 @@
-/**
+/*
  * Praktikum PM1 / PT - SS 2016
  * Gruppe:  Philip Scheer (Philip.Scheer@haw-hamburg.de),
  * 			Moritz Höwer (Moritz.Hoewer@haw-hamburg.de)
@@ -51,11 +51,15 @@ public class BettingOffice {
 	/**
 	 * Accepts a new bet for the race
 	 * 
-	 * @param driverName the name of the driver the bet is placed on
-	 * @param betAmount the amount of money placed
-	 * @param playerName name of the person betting
+	 * @param driverName
+	 *            the name of the driver the bet is placed on
+	 * @param betAmount
+	 *            the amount of money placed
+	 * @param playerName
+	 *            name of the person betting
 	 */
-	public void placeBet(String driverName, double betAmount, String playerName) {
+	public void placeBet(String driverName, double betAmount,
+			String playerName) {
 		// do we need to expand the array?
 		if (betCount == bets.length) {
 			// create new array
@@ -72,37 +76,38 @@ public class BettingOffice {
 		bets[betCount] = new Bet(driverName, betAmount, playerName);
 		betCount++;
 	}
-	
+
 	/**
 	 * Evaluates the race
 	 */
-	public void evaluate(){
-		//perform the race
+	public void evaluate() {
+		// perform the race
 		race.perform();
-		
-		//check who won
+
+		// check who won
 		String winner = race.getWinner().getDriverName();
-		
-		//go through the bets and check whether anyone has won
-		for(int i = 0; i < betCount; i++){
+
+		// go through the bets and check whether anyone has won
+		for (int i = 0; i < betCount; i++) {
 			Bet b = bets[i];
-			if(winner.equals(b.getDriverName())){
-				System.out.format("%s has won %.2f€\n", b.getPlayerName(), b.getBetAmount() * quote);
+			if (winner.equals(b.getDriverName())) {
+				System.out.format("%s has won %.2f€\n", b.getPlayerName(),
+						b.getBetAmount() * quote);
 			}
 		}
 	}
-	
-	public static void main(String[] args){
+
+	public static void main(String[] args) {
 		Race race = new Race(3000);
 		race.addRacecar(new Racecar("Moritz", "Ford Fiesta", 140));
 		race.addRacecar(new Racecar("Gitta", "Renault Clio", 160));
 		race.addRacecar(new Racecar("Jochen", "Renault CLio", 150));
-		
+
 		BettingOffice bo = new BettingOffice(race, 1.73);
 		bo.placeBet("Moritz", 100, "SniperDude136");
 		bo.placeBet("Jochen", 150, "PrincessPeach");
 		bo.placeBet("Gitta", 283, "Steve");
-		
+
 		bo.evaluate();
 	}
 }
