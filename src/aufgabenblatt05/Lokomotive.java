@@ -22,6 +22,9 @@ public class Lokomotive {
 	 */
 	private final int typ;
 	
+	/**
+	 * Verknüfung zum ersten Wagen
+	 */
 	private Wagen ersterWagen;
 	
 	public Lokomotive(int laenge, int typ) {
@@ -35,6 +38,14 @@ public class Lokomotive {
 	
 	public void setErsterWagen(Wagen ersterWagen) {
 		this.ersterWagen = ersterWagen;
+	}
+	
+	public int getLeange() {
+		return laenge;
+	}
+	
+	public int getTyp() {
+		return typ;
 	}
 	
 }

@@ -3,7 +3,15 @@ package spielwiese;
 public class Test {
 
 	public static void main(String[] args) {
-		System.out.println(kuerzester("aaa", "bb", "c", "dddd"));
+
+
+		ISelbstausgabe ausgabe =
+				null;
+		//ausgabe.ausgeben();
+		ausgabe = new A();
+		ausgabe.ausgeben();
+		ausgabe = new B();
+		ausgabe.ausgeben();
 	}
 	
 	public static String kuerzester(String... strings) {

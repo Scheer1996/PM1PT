@@ -27,7 +27,7 @@ public class EdelsteinBox {
 
 	public static void main(String[] args) {
 		//EdelsteinBox box = new EdelsteinBox(0, 0, 0);
-		EdelsteinBox box = new EdelsteinBox(Edelstein.DIAMANT, Edelstein.DIAMANT,Edelstein.DIAMANT);
+		EdelsteinBox box = new EdelsteinBox(Edelstein.DIAMANT, Edelstein.DIAMANT,Edelstein.DIAMANT, Edelstein.RUBIN);
 		box.hineinlegen(Edelstein.DIAMANT, 2);
 		box.hineinlegen(Edelstein.RUBIN, 2);
 		box.hineinlegen(Edelstein.SAMARAGD, 3);
@@ -40,16 +40,7 @@ public class EdelsteinBox {
 	 * Hier lassen sich beim erzeugen der EdelsteinBox bereits die 3
 	 * Edelsteintypen hinzufügen
 	 * 
-	 * @param diamanten
-	 * @param rubinen
-	 * @param smaragde
 	 */
-	/*public EdelsteinBox(int diamanten, int rubinen, int smaragde) {
-		edelsteine = new int[3];
-		edelsteine[0] = diamanten;
-		edelsteine[1] = rubinen;
-		edelsteine[2] = smaragde;
-	}*/
 	public EdelsteinBox(Edelstein ...edelsteine) {
 		this.edelsteine = new int[Edelstein.values().length];
 		for(Edelstein stein: edelsteine) {
