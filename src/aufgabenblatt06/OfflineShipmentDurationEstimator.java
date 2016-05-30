@@ -144,6 +144,7 @@ public class OfflineShipmentDurationEstimator
 			lastInAlphabet = origin;
 		}
 		
+		//retrive duration from cache
 		return cache.get(firstInAlphabet.toString() + lastInAlphabet.toString());
 	}
 
