@@ -72,15 +72,18 @@ public abstract class Shipment {
 	/**
 	 * Has the Shipment been delivered yet?
 	 * 
-	 * @return true ==> delivered, false ==> still in transport
+	 * @return true = delivered, false = still in transport
 	 */
 	public abstract boolean isDelivered();
-	
+
 	/**
 	 * updates the current time for simulation purposes
+	 * 
+	 * @param currentTime
+	 *            the current time in the simulation
 	 */
 	public abstract void updateTime(int currentTime);
-	
+
 	// Getters
 	public int getShipmentID() {
 		return shipmentID;
@@ -100,7 +103,5 @@ public abstract class Shipment {
 				+ ", receiver=" + receiver + ", startTime=" + startTime
 				+ " min, transportDuration=" + transportDuration + " min]";
 	}
-	
-	
 
 }

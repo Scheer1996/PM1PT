@@ -15,7 +15,9 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
+ * Main class for this project
  * 
+ * Simulates a logistics network
  * 
  * @author Moritz Höwer
  */
