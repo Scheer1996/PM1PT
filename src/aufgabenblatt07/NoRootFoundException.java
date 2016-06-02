@@ -14,4 +14,7 @@ package aufgabenblatt07;
  */
 public class NoRootFoundException extends Exception {
 
+	public NoRootFoundException(NoRootFoundExceptionCause cause){
+		super(cause.toString()); //Höchst kritisch wegen evtl. null im Konstruktor...
+	}
 }

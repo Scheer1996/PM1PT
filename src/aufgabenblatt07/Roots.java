@@ -15,21 +15,24 @@ package aufgabenblatt07;
 public class Roots {
 
 	/**
-	 * if |f(x)| is less than or equal to EPSILON, then x is root 
+	 * if |f(x)| is less than or equal to EPSILON, then x is root
 	 */
 	private final double EPSILON = 1e-5;
 	
 	/**
+	 * maximum number of iterations before an exception is thrown
+	 */
+	private final int MAX_ITERATIONS = 0;
+
+	/**
 	 * the function to perform calculations on
 	 */
 	private final Function function;
-	
-	public Roots(Function f){
+
+	public Roots(Function f) {
 		this.function = f;
 	}
-	
-	
-	
+
 	/**
 	 * finds the closest root to a starting value
 	 * 
@@ -37,15 +40,24 @@ public class Roots {
 	 *            the value to start newtons method at
 	 * @return the x value of the closest root
 	 */
-	public double findRoot(double startingValue) {
-		double xn = startingValue;		
+	public double findRoot(double startingValue) throws NoRootFoundException {
+		double xn = startingValue;
 		double y = function.calculateValueFor(xn);
+
+		int count = 0;
 		
-		while(Math.abs(y) > EPSILON){
-			xn = xn - function.calculateValueFor(xn) / function.calculateValueOfDerivateFor(xn);
+		while (Math.abs(y) > EPSILON) {
+			
+			if(count > MAX_ITERATIONS){
+				throw new NoRootFoundException(NoRootFoundExceptionCause.NO_CONVERGENCE);
+			}
+			
+			double dy = function.calculateValueOfDerivateFor(xn);
+			xn = xn - function.calculateValueFor(xn) / dy;
 			y = function.calculateValueFor(xn);
+			count++;			
 		}
-		
+
 		return xn;
 	}
 }
