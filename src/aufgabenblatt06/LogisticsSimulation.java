@@ -94,7 +94,7 @@ public class LogisticsSimulation {
 		// go through shipments list
 		int activeShipments = 0;
 		for (Iterator<MyShipmentWrapper> it = shipments.iterator(); it
-				.hasNext();) { // sorry for abusing for-loop :D
+				.hasNext();) {
 			MyShipmentWrapper s = it.next();
 
 			// make all the new shipments from last tick normal
@@ -211,26 +211,27 @@ public class LogisticsSimulation {
 
 		// print header with current time
 		System.out.println(
-				"===============================================================================");
+				"=====================================================================================");
 		System.out.println(
-				"                              Logistics Simulation                             ");
+				"                                  Logistics Simulation                               ");
 		System.out.println(
-				"===============================================================================");
+				"=====================================================================================");
 		System.out.format("Current time is %02d:%02d \n",
 				currentTime / MINUTES_IN_HOUR, currentTime % MINUTES_IN_HOUR);
 		System.out.println();
 
 		// print table header
 		System.out.println(
-				"   Type  |    Origin   |  Destination  |  Start  | Duration |  ETA  |    ETE   ");
+				"      Type     |    Origin   |  Destination  |  Start  | Duration |  ETA  |    ETE   ");
 		System.out.println(
-				"---------|-------------|---------------|---------|----------|-------|----------");
+				"---------------|-------------|---------------|---------|----------|-------|----------");
 
 		// print data for all the shipments
 		for (MyShipmentWrapper sw : shipments) {
 			Shipment s = sw.shipment;
 
 			String type = (s instanceof Package) ? "Package" : "Letter";
+			int shipmentID = s.getShipmentID();
 			String origin = s.sender.getAddress().getCity().toString();
 			String destination = s.receiver.getAddress().getCity().toString();
 			int start = s.getStartTime();
@@ -240,24 +241,24 @@ public class LogisticsSimulation {
 
 			if (sw.displayState == ShipmentDisplayState.NORMAL) {
 				System.out.format(
-						" %7s | %11s | %13s |  %02d:%02d  | %3d min  | %02d:%02d |  %3d min \n",
-						type, origin, destination, start / MINUTES_IN_HOUR,
+						" %7s (%03d) | %11s | %13s |  %02d:%02d  | %3d min  | %02d:%02d |  %3d min \n",
+						type, shipmentID, origin, destination, start / MINUTES_IN_HOUR,
 						start % MINUTES_IN_HOUR, duration,
 						eta / MINUTES_IN_HOUR, eta % MINUTES_IN_HOUR, ete);
 			} else if (sw.displayState == ShipmentDisplayState.DELIVERED) {
 				System.out.format(
 						COLOR_RED
-								+ " %7s | %11s | %13s |  %02d:%02d  | %3d min  | %02d:%02d | Delivered \n"
+								+ " %7s (%03d) | %11s | %13s |  %02d:%02d  | %3d min  | %02d:%02d | Delivered \n"
 								+ COLOR_RESET,
-						type, origin, destination, start / MINUTES_IN_HOUR,
+						type, shipmentID, origin, destination, start / MINUTES_IN_HOUR,
 						start % MINUTES_IN_HOUR, duration,
 						eta / MINUTES_IN_HOUR, eta % MINUTES_IN_HOUR);
 			} else if (sw.displayState == ShipmentDisplayState.NEW) {
 				System.out.format(
 						COLOR_GREEN
-								+ " %7s | %11s | %13s |  %02d:%02d  | %3d min  | %02d:%02d |  %3d min \n"
+								+ " %7s (%03d) | %11s | %13s |  %02d:%02d  | %3d min  | %02d:%02d |  %3d min \n"
 								+ COLOR_RESET,
-						type, origin, destination, start / MINUTES_IN_HOUR,
+						type, shipmentID, origin, destination, start / MINUTES_IN_HOUR,
 						start % MINUTES_IN_HOUR, duration,
 						eta / MINUTES_IN_HOUR, eta % MINUTES_IN_HOUR, ete);
 			}

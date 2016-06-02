@@ -15,7 +15,6 @@ package aufgabenblatt06;
  * @author Moritz Höwer
  */
 public abstract class Shipment {
-
 	/**
 	 * the sender of this Shipment
 	 */
@@ -44,7 +43,7 @@ public abstract class Shipment {
 	/**
 	 * static object counter for ensuring unique Shipment IDs
 	 */
-	protected static int shipmentCounter = 0;
+	private static int shipmentCounter = 0;
 
 	/**
 	 * Initializes a new Shipment
@@ -63,7 +62,7 @@ public abstract class Shipment {
 		this.sender = sender;
 		this.receiver = receiver;
 		this.startTime = startTime;
-		this.transportDuration = transportDuration;
+		this.transportDuration = transportDuration; //wäre sinnvoller hier zu berechnen ?!
 
 		shipmentID = shipmentCounter;
 		shipmentCounter++;
