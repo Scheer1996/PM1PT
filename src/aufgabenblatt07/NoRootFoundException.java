@@ -10,11 +10,26 @@
 package aufgabenblatt07;
 
 /**
- * 
+ * custom exception class when Roots can't find a root
  */
+@SuppressWarnings("serial")
 public class NoRootFoundException extends Exception {
 
+	/**
+	 * the cause for this exception
+	 */
+	private NoRootFoundExceptionCause cause;
+	
 	public NoRootFoundException(NoRootFoundExceptionCause cause){
-		super(cause.toString()); //Höchst kritisch wegen evtl. null im Konstruktor...
+		this.cause = cause;
 	}
+	
+	@Override
+	public String getMessage(){
+		if(cause == null){
+			return null;
+		}
+		
+		return cause.getMessage();
+	}	
 }

@@ -9,6 +9,8 @@
 
 package aufgabenblatt07;
 
+import java.util.List;
+
 /**
  * Application entry point for Aufgabenblatt 7
  */
@@ -21,6 +23,10 @@ public class Aufgabenblatt07_Application {
 	 *            commandline args
 	 */
 	public static void main(String[] args) throws NoRootFoundException{
-		new Roots(new PolynomialFunction(1,2,3)).findRoot(0);
+		PolynomialFunction pf = new PolynomialFunction(1, 5, 7, 6, 2, -1);
+		Roots r = new Roots(pf);
+		
+		List<Double> roots  = r.findRootsRandomised(-50, 50, 100);
+		System.out.println(roots);
 	}
 }
