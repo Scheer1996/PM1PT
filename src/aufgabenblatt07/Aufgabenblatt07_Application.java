@@ -24,6 +24,7 @@ public class Aufgabenblatt07_Application {
 	 */
 	public static void main(String[] args) throws NoRootFoundException{
 		PolynomialFunction pf = new PolynomialFunction(1, 5, 7, 6, 2, -1);
+		System.out.println(pf);
 		Roots r = new Roots(pf);
 		
 		List<Double> roots  = r.findRootsRandomised(-50, 50, 100);

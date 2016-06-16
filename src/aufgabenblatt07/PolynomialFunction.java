@@ -73,7 +73,7 @@ public class PolynomialFunction implements Function {
 	 * @return a PolynomialFunction object representing the derivate of this
 	 *         function
 	 */
-	public Function getDerivate() {
+	public PolynomialFunction getDerivate() {
 		if (coefficients.length == 0) {
 			return new PolynomialFunction();
 		} else if (coefficients.length == 1) {

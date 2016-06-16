@@ -11,6 +11,7 @@ package aufgabenblatt07;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.List;
 import java.util.Iterator;
 
@@ -50,7 +51,7 @@ public class Roots {
 		double xn = startingValue;
 		double y = function.calculateValueFor(xn);
 
-		if (y == Double.NaN) {
+		if (Double.isNaN(y)) {
 			throw new NoRootFoundException(
 					NoRootFoundExceptionCause.NO_CONVERGENCE);
 		}
@@ -65,7 +66,7 @@ public class Roots {
 
 			double dy = function.calculateValueOfDerivateFor(xn);
 
-			if (dy == 0) {
+			if (Math.abs(dy) < EPSILON) {
 				throw new NoRootFoundException(
 						NoRootFoundExceptionCause.DIVIDE_BY_ZERO);
 			}
@@ -94,7 +95,7 @@ public class Roots {
 	 */
 	public List<Double> findRootsRandomised(int min, int max,
 			int numberOfTries) {
-		HashSet<UnpreciseDoubleValue> set = new HashSet<>();
+		Set<UnpreciseDoubleValue> set = new HashSet<>();
 		double x0;
 
 		for (int i = 0; i < numberOfTries; i++) {
@@ -106,9 +107,9 @@ public class Roots {
 			}
 		}
 		
-		List<Double> list = new ArrayList<>();
-		for(Iterator<UnpreciseDoubleValue> it = set.iterator();it.hasNext();){
-			list.add(it.next().getValue());
+		List<Double> list = new ArrayList<>(set.size());
+		for(UnpreciseDoubleValue val : set){
+			list.add(val.getValue());
 		}
 		
 		list.sort(null);

@@ -25,11 +25,11 @@ public class NoRootFoundException extends Exception {
 	}
 	
 	@Override
+	
 	public String getMessage(){
 		if(cause == null){
-			return null;
+			return "";
 		}
-		
 		return cause.getMessage();
 	}	
 }

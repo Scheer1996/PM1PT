@@ -1,3 +1,12 @@
+/*
+ * Praktikum PM1 / PT - SS 2016
+ * Gruppe:  Philip Scheer (Philip.Scheer@haw-hamburg.de),
+ * 			Moritz Höwer (Moritz.Hoewer@haw-hamburg.de)
+ * 
+ * Datum: 02.06.2016 
+ * Aufgabe: Aufgabenblatt 7 - Aufgabe 2
+ */
+
 package aufgabenblatt07.test;
 
 import aufgabenblatt07.*;
@@ -9,10 +18,10 @@ import org.junit.Test;
 
 public class TestRoots {
 
-	@Test
+	@Test(expected=NoRootFoundException.class)
 	public void testFindRootNoRoot() throws NoRootFoundException {
 		Roots r = new Roots(new PolynomialFunction());
-		assertEquals("No root failed to return 0", 0, r.findRoot(0), 0);
+		r.findRoot(0);
 	}
 
 	@Test

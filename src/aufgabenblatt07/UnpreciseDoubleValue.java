@@ -37,7 +37,7 @@ public class UnpreciseDoubleValue {
 
 	@Override
 	public int hashCode() {
-		return (int) value;
+		return (int) (value / EPSILON) ;
 	}
 
 	@Override
